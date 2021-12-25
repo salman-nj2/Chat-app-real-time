@@ -1,27 +1,46 @@
 let users = [];
 
-const addUser = ({ id, name, room }) => {
-  if (!name || !room) {
-    return { error: "name and room is required" };
-  }
-
-  name = name.trim().toLowerCase();
+const addUser = ({ id, user, room }) => {
+  user = user.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
+  if (!user || !room) {
+    return { error: "name and room required" };
+  }
+
   if (users.length) {
-    const existingUser = users.find(
-      (each) => each.name === name && each.room === room
-    );
-    if (existingUser) {
-      return { error: "user already exists" };
+    const data = users.find((e) => e.user === user && e.room === room);
+
+    if (data) {
+      return { error: "user already exist" };
     }
   }
 
-  const user = { id, name, room };
+  const response = { id, user, room };
 
-  users.push(user);
-  return { user };
+  users.push(response);
+
+  console.log(users);
+
+  return { response };
 };
+
+const removeUser = (id) => {
+  const findIdx = users.findIndex((user) => user.id === id);
+  if (findIdx) {
+    return users.splice(findIdx, 1)[0];
+  }
+};
+const getUser = (id) => {
+  return users.find((user) => user.id === id);
+};
+const activeUsers = (room) => {
+  return users.filter((user) => user.room === room);
+};
+console.log(users);
 module.exports = {
   addUser,
+  getUser,
+  removeUser,
+  activeUsers,
 };
