@@ -3,8 +3,8 @@ import styles from "./Login.module.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 function Login() {
-  const [user, setuser] = useState("");
-  const [room, setroom] = useState("");
+  const [user, setUser] = useState("");
+  const [room, setRoom] = useState("");
   return (
     <>
       <div className={styles.container}>
@@ -17,18 +17,18 @@ function Login() {
             <input
               type="text"
               placeholder="Enter your name..."
-              onChange={(e) => setuser(e.target.value)}
+              onChange={(e) => setUser(e.target.value)}
             />
             <input
               type="text"
               placeholder="Enter Room"
-              onChange={(e) => setroom(e.target.value)}
+              onChange={(e) => setRoom(e.target.value)}
             />
             <Link
               onClick={(e) => (!user || !room ? e.preventDefault() : null)}
               to={`/chat?name=${user}&room=${room}`}
             >
-              <input type="submit" value="Login" className={styles.submit} />
+              <input type="submit" value="Join" className={styles.submit} />
             </Link>
           </form>
         </div>
