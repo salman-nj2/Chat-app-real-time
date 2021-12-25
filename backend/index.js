@@ -8,17 +8,12 @@ const socketio = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, { cors: { origin: "*" } });
 
 //end points
 
 app.get("/", (req, res) => {
   res.json("working");
-});
-// run server
-
-server.listen(8000, () => {
-  console.log("listening on port 8000");
 });
 
 // socket
@@ -29,4 +24,9 @@ io.on("connect", (socket) => {
   socket.on("disconnect", () => {
     console.log("user disconnect");
   });
+});
+// run server
+
+server.listen(8000, () => {
+  console.log("listening on port 8000");
 });
