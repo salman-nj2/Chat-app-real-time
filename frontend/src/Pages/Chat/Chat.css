@@ -95,12 +95,29 @@
   align-items: center;
   background-color: #161819;
   border-bottom: 1px solid rgb(58, 58, 58);
+  justify-content: space-between;
 }
 .room img {
   width: 3%;
   object-fit: contain;
   margin-right: 20px;
   margin-top: 10px;
+}
+.room button > * {
+  text-decoration: none;
+  color: #fff;
+}
+.room button {
+  height: 40px;
+  width: 100px;
+  font-size: 15px;
+  background-color: #5168f4;
+  border: none;
+  border-radius: 5px;
+}
+.room button:hover {
+  transform: scale(1.1);
+  transition: 0.3s all;
 }
 .inp {
   padding: 5px 0;
@@ -140,7 +157,7 @@
 }
 .activeuser > div:nth-of-type(1) {
   font-size: 25px;
-  padding: 18.2px 25px;
+  padding: 16px 25px;
   border-bottom: 1px solid rgb(58, 58, 58);
   display: flex;
   align-items: center;

@@ -4,6 +4,8 @@ import "./Chat.css";
 import grp from "./grp.svg";
 import send1 from "./send1.svg";
 import activeUser from "./activeUser.svg";
+import { Link } from "react-router-dom";
+
 let socket;
 function Chat() {
   const [user, setUser] = useState();
@@ -11,7 +13,6 @@ function Chat() {
   const [activeUsers, setActiveUsers] = useState([]);
   const [msg, setMsg] = useState("");
   const [messages, setMessages] = useState([]);
-  console.log("msg", msg);
   const socketUrl = "http://localhost:8000";
   useEffect(() => {
     socket = io(socketUrl);
@@ -48,16 +49,13 @@ function Chat() {
       setActiveUsers(user);
     });
   }, []);
-  console.log("messages", messages);
   const sendMessage = (e) => {
-    // e.preventDefault();
     socket.emit("sendMsg", msg, () => setMsg(""));
     setTimeout(() => {
       var objDiv = document.querySelector(".chatbox");
       objDiv.scrollTop = objDiv.scrollHeight;
     }, 10);
   };
-  console.log("messages", messages);
   return (
     <>
       <div className="container">
@@ -77,8 +75,13 @@ function Chat() {
         </div>
         <div>
           <div className="room">
-            <img src={grp} alt="grp" />
-            <span>{room}</span>
+            <div>
+              <img src={grp} alt="grp" />
+              <span>{room}</span>
+            </div>
+            <button>
+              <Link to={"/"}>Leave room</Link>
+            </button>
           </div>
           <div className="chatbox">
             {messages.map((e, i) =>

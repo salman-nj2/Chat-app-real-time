@@ -12,7 +12,7 @@ function Login() {
           <source src={background} type="video/mp4" />
         </video>
         <div className={styles.form}>
-          <div>Chat World</div>
+          <div className={styles.heading}>Chat World</div>
           <form method="post">
             <input
               type="text"

@@ -14,6 +14,9 @@
 body {
   overflow: hidden; /* Hide scrollbars */
 }
+.heading {
+  font-size: 25px;
+}
 .form {
   color: #fff;
   display: flex;
