@@ -9,6 +9,7 @@ const { addUser, removeUser, getUser, activeUsers } = require("./entity");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server, { cors: { origin: "*" } });
+const PORT = process.env.PORT || 8000;
 
 //end points
 
@@ -73,6 +74,6 @@ io.on("connect", (socket) => {
 });
 // run server
 
-server.listen(8000, () => {
+server.listen(PORT, () => {
   console.log("listening on port 8000");
 });
