@@ -114,6 +114,7 @@
   color: #fff;
   padding-left: 15px;
   font-size: 20px;
+  border-radius: 10px;
 }
 .inp input:focus {
   outline: none !important;
