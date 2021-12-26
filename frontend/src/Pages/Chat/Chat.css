@@ -3,7 +3,6 @@
   width: 100%;
   background-color: #1c1e1f;
   height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .container > div:nth-of-type(1) {
   width: 20%;
@@ -137,9 +136,12 @@
   display: flex;
 }
 .activeuser > div:nth-of-type(1) {
-  font-size: 26px;
-  padding: 19.5px 25px;
+  font-size: 25px;
+  padding: 18.2px 25px;
   border-bottom: 1px solid rgb(58, 58, 58);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .activeuser > div:nth-of-type(2) {
   padding: 20px;
@@ -163,4 +165,7 @@
 }
 .activeuser > div:nth-of-type(2) > div:hover {
   background-color: #313d55;
+}
+.activeuser img {
+  width: 15%;
 }

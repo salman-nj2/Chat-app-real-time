@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./Chat.css";
 import grp from "./grp.svg";
 import send1 from "./send1.svg";
+import activeUser from "./activeUser.svg";
 let socket;
 function Chat() {
   const [user, setUser] = useState();
@@ -62,11 +63,12 @@ function Chat() {
       <div className="container">
         <div className="activeuser">
           <div>
-            Active Users <span> &#8659;</span>
+            Active Users
+            <img src={activeUser} alt="users" />
           </div>
           <div>
-            {activeUsers.map((e) => (
-              <div>
+            {activeUsers.map((e, i) => (
+              <div key={i}>
                 <span>{e.user}</span>
                 <span className="dot"></span>
               </div>
@@ -81,7 +83,7 @@ function Chat() {
           <div className="chatbox">
             {messages.map((e, i) =>
               e.user !== user?.toLowerCase() ? (
-                <div className="chat left">
+                <div className="chat left" key={i}>
                   <div>
                     <p>{e.user}</p>
                     <p>{e.date}</p>
@@ -91,7 +93,7 @@ function Chat() {
                   </div>
                 </div>
               ) : (
-                <div className="chat right">
+                <div className="chat right" key={i}>
                   <div>
                     <p>{e.user}</p>
                     <p>{e.date}</p>
