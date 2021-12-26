@@ -98,7 +98,7 @@
   justify-content: space-between;
 }
 .room img {
-  width: 3%;
+  width: 4%;
   object-fit: contain;
   margin-right: 20px;
   margin-top: 10px;
@@ -157,7 +157,7 @@
 }
 .activeuser > div:nth-of-type(1) {
   font-size: 25px;
-  padding: 16px 25px;
+  padding: 16.2px 25px;
   border-bottom: 1px solid rgb(58, 58, 58);
   display: flex;
   align-items: center;

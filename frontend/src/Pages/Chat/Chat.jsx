@@ -13,7 +13,7 @@ function Chat() {
   const [activeUsers, setActiveUsers] = useState([]);
   const [msg, setMsg] = useState("");
   const [messages, setMessages] = useState([]);
-  const socketUrl = "http://localhost:8000";
+  const socketUrl = "https://universal-chat-app.herokuapp.com/";
   useEffect(() => {
     socket = io(socketUrl);
     const search = window.location.search;
